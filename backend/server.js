@@ -7,21 +7,21 @@ app.use(cors());
 app.use(express.json());
 
 const db=mysql.createConnection({
-    host:"bengzujf65p90ibgodax-mysql.services.clever-cloud.com",
-    user:"uneipvqlxzv3j5dm",
-    password:"LSeArjWGueb5pJApE8uZ",
-    database:"bengzujf65p90ibgodax"
+    host:"btqqs72282o6adafyb1p-mysql.services.clever-cloud.com",
+    user:"uvavqhose4uzaatu",
+    password:"KEw7UrEyCtefMJl9JkWP",
+    database:"btqqs72282o6adafyb1p"
 })
 
 app.get('/',(req,res)=>{
-    const sql="SELECT * FROM employees";
+    const sql="SELECT * FROM employeeform";
     db.query(sql,(err,data)=>{
         if(err) return res.json(err);
         return res.json(data);
     })
 })
 app.post('/', (req, res, next) => {
-    const sql = "INSERT INTO employees (Employee_Id, Employee_Name, Employee_Department, Employee_Salary, Employee_Address, Employee_DOB, Employee_Age, Date_Of_Joining) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    const sql = "INSERT INTO employeeform (Employee_Id, Employee_Name, Employee_Department, Employee_Salary, Employee_Address, Employee_DOB, Employee_Age, Date_Of_Joining) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     const values = [
         req.body.Employee_Id,
         req.body.Employee_Name,
@@ -43,7 +43,7 @@ app.post('/', (req, res, next) => {
 
   
 app.delete('/:Employee_Id', (req, res, next) => {
-    const sql = "DELETE FROM employees WHERE Employee_Id= ?";
+    const sql = "DELETE FROM employeeform WHERE Employee_Id= ?";
     const Employee_Id=req.params.Employee_Id;
 
     db.query(sql, [Employee_Id], (err, data) => {

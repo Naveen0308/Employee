@@ -17,19 +17,19 @@ function Home() {
     const handleSubmit = (event) =>{
         console.log(Employee_Id,Employee_Name,Employee_Department,Employee_Salary,Employee_Address,Employee_DOB,Employee_Age,Date_Of_Joining);
         event.preventDefault();
-        axios.post('http://localhost:8081/',{Employee_Id,Employee_Name,Employee_Department,Employee_Salary,Employee_Address,Employee_DOB,Employee_Age,Date_Of_Joining})
+        axios.post('https://render.com/',{Employee_Id,Employee_Name,Employee_Department,Employee_Salary,Employee_Address,Employee_DOB,Employee_Age,Date_Of_Joining})
         .then(res =>{
             navigate('/');
         }).catch(err => console.log(err));
     }
     const [data,setData]=useState([]);
     useEffect(()=>{
-        axios.get('http://localhost:8081/')
+        axios.get('https://render.com/')
         .then(res => setData(res.data))
         .catch(err => console.log(err));   
     })
     const handleDelete=(Employee_Id)=>{
-        axios.delete('http://localhost:8081/'+Employee_Id)
+        axios.delete('https://render.com/'+Employee_Id)
         .then(res => navigate('/'))
         .catch(err => console.log(err));
     }
