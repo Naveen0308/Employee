@@ -29,7 +29,7 @@ function Home() {
         .catch(err => console.log(err));   
     })
     const handleDelete=(Employee_Id)=>{
-        axios.delete('https://employee-form.onrender.com'+Employee_Id)
+        axios.delete('https://employee-form.onrender.com/'+Employee_Id)
         .then(res => navigate('/'))
         .catch(err => console.log(err));
     }
